@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Eletrônica Prime</title>
+  </head>
+  <body>
+    <header>
+      <div class="header-color-bar"></div>
+      <!-- Barra azul metálica acima -->
+      <div class="header-container">
+        <img
+          src="optimus/optimus_logo00.jpg"
+          alt="Logo Eletrônica Prime"
+          class="logo"
+        />
+        <h1 class="header-title">Bem-vindo à Eletrônica Prime!</h1>
+      </div>
+    </header>
+
+    <br />
+    <hr />
+
+    <!-- Slide Show com classe para imagem -->
+    <section>
+      <div class="slideshow-container" id="carrossel">
+        <div class="mySlides">
+          <img
+            src="optimus/optimus01.jpg"
+            alt="Optimus Prime"
+            class="optimus-image"
+          />
+          <div class="text">Tecnologia de Ponta!</div>
+        </div>
+        <div class="mySlides">
+          <img src="imagens celular/celular1.jpeg" alt="Promoção" />
+          <div class="text">Descontos Especiais</div>
+        </div>
+        <div class="mySlides">
+          <img src="imagens notbook/notbook1.jpg" alt="Eletrônicos" />
+          <div class="text">Eletrônica Prime: O Melhor da Tecnologia</div>
+        </div>
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+      </div>
+    </section>
+
+    <br />
+
+    <!-- Checkbox do menu hambúrguer -->
+    <input type="checkbox" id="menu-toggle" hidden />
+    <label for="menu-toggle" class="menu-icon">
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+    </label>
+
+    <!-- Menu navegável -->
+    <nav class="menu">
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Contato</a></li>
+        <li><a href="#">História</a></li>
+        <li><a href="#">Celulares Prime</a></li>
+        <li><a href="#">Notebooks Prime</a></li>
+        <li><a href="#">Computadores Prime</a></li>
+      </ul>
+    </nav>
+
+    <br />
+    <hr />
+
+    <!-- Checklist atualizado -->
+    <div class="checklist-container">
+      <h2>Checklist:</h2>
+      <ul>
+        <li>
+          <input type="checkbox" id="item1" />
+          <label for="item1" class="checklist-item"
+            >Escolha o produto desejado</label
+          >
+        </li>
+        <li>
+          <input type="checkbox" id="item2" />
+          <label for="item2" class="checklist-item">Adicione ao carrinho</label>
+        </li>
+        <li>
+          <input type="checkbox" id="item3" />
+          <label for="item3" class="checklist-item"
+            >Finalize a compra com segurança</label
+          >
+        </li>
+      </ul>
+    </div>
+
+    <!-- Rodapé -->
+    <footer>
+      <hr />
+      <p style="text-align: center; margin-top: 20px">
+        <strong
+          >&copy; 2024 Eletrônica Prime. Todos os direitos reservados.</strong
+        >
+      </p>
+      <audio id="audio" loop>
+        <source src="musica/What.mp3" type="audio/mp3" />
+      </audio>
+
+      <div class="progress-container">
+        <div class="progress-bar" id="progress-bar"></div>
+      </div>
+    </footer>
+
+    <script>
+      const audio = document.getElementById("audio");
+      const progressBar = document.getElementById("progress-bar");
+
+      // Inicia a reprodução automaticamente
+      audio.play();
+
+      // Atualiza a barra de progresso
+      audio.addEventListener("timeupdate", () => {
+        const progress = (audio.currentTime / audio.duration) * 100;
+        progressBar.style.width = `${progress}%`;
+      });
+
+      // Reinicia o áudio ao final
+      audio.addEventListener("ended", () => {
+        audio.currentTime = 0;
+        progressBar.style.width = "0%";
+        audio.play();
+      });
+    </script>
+    <script src="script.js"></script>
+  </body>
+</html>

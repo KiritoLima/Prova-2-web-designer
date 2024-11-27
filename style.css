@@ -1,0 +1,221 @@
+body {
+  margin: 0;
+}
+
+/* Estilo do Cabeçalho */
+header {
+  background: linear-gradient(
+    90deg,
+    #3a5c9b,
+    #6a90c9
+  ); /* Azul metálico com degradê */
+  padding: 10px 0;
+  text-align: center; /* Centraliza todo o conteúdo do cabeçalho */
+  position: relative; /* Garante controle sobre a posição de elementos */
+}
+
+.header-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centraliza verticalmente e horizontalmente */
+  margin: 0 auto;
+}
+
+.header-container img {
+  max-width: 200px; /* Ajuste o tamanho máximo do logo */
+  height: auto;
+}
+
+.header-title {
+  margin-top: 10px;
+  font-size: 24px;
+  font-weight: bold;
+  color: #ffffff; /* Texto em branco */
+  text-shadow: 1px 1px 2px #000; /* Efeito de sombra no texto */
+}
+
+.menu {
+  background-color: red;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  /* background-color: #333; */
+  padding: 10px 0;
+}
+
+.menu ul {
+  flex-direction: column;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 20px;
+}
+
+.menu li a {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  padding: 5px 10px;
+  transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.menu li a:hover {
+  color: red; /* Texto vermelho ao passar o cursor */
+  background-color: rgba(255, 255, 255, 0.2); /* Fundo destacado */
+  border-radius: 5px;
+}
+#menu-toggle:checked + .menu-icon + .menu {
+  display: flex;
+}
+/* Ícone do Menu Hambúrguer (Mobile) */
+.menu-icon {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 30px;
+  height: 25px;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  margin: 10px;
+}
+
+.menu-icon .bar {
+  height: 4px;
+  width: 100%;
+  background-color: #333;
+  border-radius: 5px;
+  z-index: 1001;
+}
+
+/* Mostrar o Menu no Mobile */
+#menu-toggle:checked + .menu-icon + .menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Ajustes para Desktop */
+@media (min-width: 768px) {
+  .menu {
+    background-color: blue;
+    flex-direction: row;
+    justify-content: center;
+    display: flex; /* Exibe o menu no desktop */
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+  }
+  .menu ul {
+    flex-direction: row;
+  }
+
+  .menu-icon {
+    display: none; /* Oculta o ícone no desktop */
+  }
+
+  .header-container {
+    margin-top: 50px; /* Dá espaço entre o cabeçalho e o menu */
+  }
+  #menu-toggle {
+    display: none; /* Oculta o checkbox */
+  }
+}
+
+/* Estilo do Carrossel */
+.slideshow-container {
+  display: flex;
+  justify-content: center; /* Centraliza o carrossel horizontalmente */
+  align-items: center; /* Centraliza verticalmente (caso necessário) */
+  margin: 20px auto; /* Espaçamento acima e abaixo */
+  width: 80%; /* Ajusta a largura do carrossel */
+  position: relative;
+}
+
+.mySlides img {
+  width: 100%; /* Ajusta as imagens para o tamanho do carrossel */
+  border-radius: 5px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* Sombra nas imagens */
+}
+
+.text {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 18px;
+}
+
+/* Botões do Carrossel */
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.3s;
+  user-select: none;
+}
+
+.prev {
+  left: 0;
+}
+
+.next {
+  right: 0;
+}
+
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+  border-radius: 50%;
+}
+
+/* Estilo do Checklist */
+.checklist-container {
+  margin: 20px;
+  padding: 10px;
+  background-color: #f0f0f0;
+  border-radius: 5px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  text-align: left; /* Mantém o texto alinhado à esquerda */
+  width: 300px; /* Define a largura fixa */
+}
+
+.progress-container {
+  position: relative;
+  width: 100%;
+  height: 5px;
+  background-color: #ddd;
+  margin: 20px 0;
+}
+
+.progress-bar {
+  position: absolute;
+  height: 100%;
+  width: 0%;
+  background-color: #3a5c9b;
+  transition: width 0.1s linear;
+}
+
+/* Estilo para rabisco no checklist */
+.line-through {
+  text-decoration: line-through; /* Adiciona o rabisco no texto */
+  color: gray; /* Opcional: muda a cor para cinza */
+}
